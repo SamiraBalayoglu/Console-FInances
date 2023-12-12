@@ -28,4 +28,6 @@
 Use the [link](https://github.com/SamiraBalayoglu/Console-FInances) to access the page on Github. 
 
 ## Home Page Screenshot:
-![Home page view]()
+![Home page view](Homepage-screenshot.png)
+
+## Thanks for your time and consideration. 
