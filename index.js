@@ -94,3 +94,54 @@ function analyzeFinances(finances) {
   let greatestIncrease = { date: '', amount: -Infinity };
   let greatestDecrease = { date: '', amount: Infinity };
 
+
+  for (let i = 0; i < finances.length; i++) {
+    const [currentMonth, currentProfitLoss] = finances[i];
+    totalProfitLoss += currentProfitLoss;
+
+    if (i > 0) {
+        const change = currentProfitLoss - finances[i - 1][1];
+        totalChange += change;
+
+        if (change > greatestIncrease.amount) {
+            greatestIncrease.amount = change;
+            greatestIncrease.date = currentMonth;
+        }
+
+        if (change < greatestDecrease.amount) {
+            greatestDecrease.amount = change;
+            greatestDecrease.date = currentMonth;
+        }
+    }
+}
+
+const averageChange = (totalChange / (totalMonths - 1)).toFixed(2);
+
+return {
+    totalMonths,
+    totalProfitLoss,
+    averageChange,
+    greatestIncrease,
+    greatestDecrease,
+};
+}
+
+// Example usage
+const analysisResult = analyzeFinances(finances);
+
+// Display the result
+console.log("Financial Analysis");
+console.log("------------------");
+console.log("Total Months: " + analysisResult.totalMonths);
+console.log("Total: $" + analysisResult.totalProfitLoss);
+console.log("Average Change: $" + analysisResult.averageChange);
+console.log(
+"Greatest Increase in Profits/Losses:",
+analysisResult.greatestIncrease.date,
+"($" + analysisResult.greatestIncrease.amount + ")"
+);
+console.log(
+"Greatest Decrease in Profits/Losses:",
+analysisResult.greatestDecrease.date,
+"($" + analysisResult.greatestDecrease.amount + ")"
+);
