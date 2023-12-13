@@ -1,7 +1,7 @@
 # Welcome to the Module 4 Challenge
-## Console-Finances
+# Console-Finances
 
-# Description
+## Description
 
  ### This JavaScript code is designed to help to analyze a financial dataset. 
  
